@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+</head>
+<body>
+
+    <h1>Welcome to the Homepage</h1>
+    <p>This is a simple homepage.</p>
+
+    <a href="login.html"><button>Submit</button></a>
+
+    <button id="logoutButton">Logout</button>
+
+    <script>
+        // JavaScript to handle the logout button click
+        document.getElementById("logoutButton").addEventListener("click", function() {
+            // Redirect the user to the login page
+            window.location.href = "login.html"; 
+        });
+    </script>
+
+</body>
+</html>
