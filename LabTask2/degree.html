@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+<body>
+    <h1 id="head">Lab performance : 5</h1>
+    <form onsubmit="return clicksubmitbutton(event)">
+        <fieldset style="width: 30%;">
+            <legend><b>Degree</b></legend>
+            <input type="checkbox" id="ssc" name="degree">SSC
+            <input type="checkbox" id="hsc" name="degree">HSC 
+            <input type="checkbox" id="bsc" name="degree">BSc
+            <input type="checkbox" id="msc" name="degree">MSc
+        </fieldset>  
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+    <p id="msg"></p>
+
+    <script>
+        function clicksubmitbutton(event) {
+            event.preventDefault();
+            
+            let checkboxes = document.querySelectorAll('input[name="degree"]:checked');
+            let message = document.getElementById("msg");
+
+            if (checkboxes.length > 0) {
+                message.textContent = "Degree selected";
+            } else {
+                alert("Please select at least one degree");
+            }
+        }
+    </script>
+</body>
+</html>

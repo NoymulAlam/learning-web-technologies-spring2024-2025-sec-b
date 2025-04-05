@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .hint {
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
+            margin-left: 5px;
+            font-size: 14px;
+            color: blue;
+            border: 1px solid blue;
+            border-radius: 4px;
+            width: 16px;
+            height: 16px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .hint:hover::after {
+            content: "hint: sample@example.com";
+            position: absolute;
+            left: 20px;
+            top: -5px;
+            background: #f9f9f9;
+            border: 1px solid #ccc;
+            padding: 5px;
+            font-size: 12px;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="head">Lab performance</h1>
+    <form onsubmit="return clicksubmitbutton(event)">
+        <label>Email</label><br><br>
+        <input type="email" id="email" name="email" value=""/>
+        <span class="hint">i</span>
+        <br><br>
+        <input type="submit" name="button" id="button" value="Submit"/>
+    </form>
+    <p id="msg" style="color: red;"></p>
+
+    <script>
+        function clicksubmitbutton(event) {
+            event.preventDefault(); 
+            
+            let uname = document.getElementById('email');
+            let msg = document.getElementById('msg');
+            let nameValue = uname.value.trim();
+    
+            if (nameValue == "") { 
+                msg.innerHTML = "Enter your Email.";
+                return false;
+            }
+             else {
+                msg.innerHTML = "Email is valid.";
+                return true;
+            }
+        }
+    </script>
+</body>
+</html>

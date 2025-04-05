@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="head">Lab performance</h1>
+    <form onsubmit="return clicksubmitbutton(event)">
+        <fieldset>
+            <legend><b>Gender</b></legend>
+            <input type="radio" name="Gender" value="Male"> Male
+            <input type="radio" name="Gender" value="Female"> Female
+            <input type="radio" name="Gender" value="Other"> Other
+        </fieldset><br>
+        <input type="submit" name="button" id="button" value="Submit"/>
+    </form>
+    <p id="msg"></p>
+
+    <script>
+        function clicksubmitbutton(event) {
+            event.preventDefault(); 
+            
+            let genderElements = document.getElementsByName("Gender");
+            let selectedGender = "";
+
+            for (let i = 0; i < genderElements.length; i++) {
+                if (genderElements[i].checked) {
+                    selectedGender = genderElements[i].value;
+                    break;
+                }
+            }
+
+            if (selectedGender) {
+                document.getElementById("msg").innerText = "Selected Gender: " + selectedGender;
+            } else {
+                document.getElementById("msg").innerText = "Please select a gender.";
+            }
+        }
+    </script>
+</body>
+</html>

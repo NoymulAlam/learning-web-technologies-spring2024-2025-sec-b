@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="head">Lab performance</h1>
+    <form onsubmit="return clicksubmitbutton(event)">
+        <label>Name</label><br><br>
+        <input type="text" id="username" name="username" value=""/><br><br>
+        <input type="submit" name="button" id="button" value="Submit"/>
+     </form>
+    <p id="msg"></p>
+
+    <script>
+        function clicksubmitbutton(event) {
+            event.preventDefault(); 
+            
+            let uname = document.getElementById('username');
+            let msg = document.getElementById('msg');
+            let nameValue = uname.value.trim();
+    
+            if (nameValue == "") { 
+                msg.innerHTML = "Enter your name.";
+                return false;
+            }
+            if (!/^[a-zA-Z][a-zA-Z.\-]*\s+[a-zA-Z.\-]+$/.test(nameValue)) {
+                alert("Invalid name!");
+                msg.innerHTML = "Name must contain at least two words, start with a letter, and can only have letters, dots, or dashes.";
+                return false;
+            }
+    
+            msg.innerHTML = ""; 
+            alert("Login successful!");
+            return true;
+        }
+    </script>
+</body>
+</html>

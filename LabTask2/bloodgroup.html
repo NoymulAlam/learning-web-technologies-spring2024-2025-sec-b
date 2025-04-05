@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Group</title>
+    <style>
+        .black-line {
+            border: none;
+            height: 5px; 
+            width: 50%;
+            background-color: black;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="head">Lab Performance : 6</h1>
+    <form onsubmit="return clicksubmitbutton(event)">
+        <label for="bloodGroup">Blood Group</label>
+        <select id="bloodGroup" name="bloodGroup">
+            <option value="">Select</option>
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+        </select>
+        <br>
+        <hr class="black-line">
+        <button type="submit">Submit</button>
+    </form>
+    <p id="msg"></p>
+
+    <script>
+        function clicksubmitbutton(event) {
+            event.preventDefault();
+
+            let bloodGroup = document.getElementById("bloodGroup").value;
+            let message = document.getElementById("msg");
+
+            if (bloodGroup) {
+                message.textContent = "Selected blood group is : "+bloodGroup;
+                message.style.color = "green";
+            } else {
+                alert("Please select a blood group")
+            }
+        }
+    </script>
+</body>
+</html>

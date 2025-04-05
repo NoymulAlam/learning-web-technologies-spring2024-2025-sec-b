@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Of Birth</title>
+    <style>
+        
+            .spaced-ddlabel {
+                margin-left: 10px;
+            }
+            .spaced-mmlabel {
+                margin-left: 25px;
+            }
+            .spaced-yylabel {
+                margin-left: 20px;
+            }
+        .dob-input {
+            width: 30px;
+            text-align: center;
+        }
+        .dob-label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="head">Lab performance : 4</h1>
+    <form onsubmit="return clicksubmitbutton(event)">
+        <fieldset style="width: 20%;">
+            <legend><b>Date of Birth</b></legend>
+           
+            
+            <label for="day" class="spaced-ddlabel">dd</label>
+            <label for="month" class="spaced-mmlabel">mm</label>
+            <label for="year" class="spaced-yylabel">yyyy</label>
+            
+            <br>
+            <input type="text" id="day" name="day" class="dob-input" maxlength="2"> /
+            <input type="text" id="month" name="month" class="dob-input" maxlength="2"> /
+            <input type="text" id="year" name="year" class="dob-input" maxlength="4">
+            <br>
+            <hr>
+            <button type="submit">Submit</button>
+       
+    </fieldset>  
+    </form>
+    <p id="msg"></p>
+
+    <script>
+        function clicksubmitbutton(event) {
+            event.preventDefault(); 
+            let day = document.getElementById("day").value;
+            let month = document.getElementById("month").value;
+            let year = document.getElementById("year").value;
+            let message = "";
+            
+            if (!day || !month || !year) {
+                message = "Fields cannot be empty.";
+            } else if (isNaN(day) || isNaN(month) || isNaN(year)) {
+                message = "All values must be numbers.";
+            } else if (day < 1 || day > 31) {
+                message = "Day must be between 1 and 31.";
+            } else if (month < 1 || month > 12) {
+                message = "Month must be between 1 and 12.";
+            } else if (year < 1950 || year > 2005) {
+                message = "Year must be between 1950 and 2005.";
+            } else {
+                message = "Date of Birth is valid.";
+            }
+            
+            document.getElementById("msg").textContent = message;
+        }
+        
+    </script>
+</body>
+</html>
